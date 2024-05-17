@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let billamount=Number(prompt('enter your bill amount'))
+        if(billamount<=1000)
+        {
+            console.log('your bill amount to pay is 0 rupees');
+        }
+        else{
+            if(billamount>1000 && billamount<=1050)
+            {
+                console.log('you have to pay',billamount+((billamount/100)*2))
+            }
+            if(billamount>1050 && billamount<=1080)
+            {
+                console.log('you have to pay',billamount+((billamount/100)*4))
+            }
+            if(billamount>1080 && billamount<=1100)
+            {
+                console.log('you have to pay',billamount+((billamount/100)*8))
+            }
+            if(billamount>1100)
+            {
+                console.log('you have to pay',billamount+((billamount/100)*20))
+            }
+        }
+    </script>
+</body>
+</html>

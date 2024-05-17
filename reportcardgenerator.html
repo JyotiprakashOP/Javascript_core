@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let math=Number(prompt('enter your secured number in math'))
+let science=Number(prompt('enter your secured number science'))
+let hindi=Number(prompt('enter your secured number in hindi'))
+let english=Number(prompt('enter your secured number in english'))
+let odia=Number(prompt('enter your secured number in odia'))
+let avg=(math+science+hindi+english+odia)/5
+if(math>=60 && science>=60 && hindi>=60 && english>=60 && odia>=60)
+{
+    console.log('pass')
+    
+    if(avg>70)
+    {
+        console.log('you have secured A+ with percentage of',avg)
+
+    }
+    else(avg<70 && avg>=60)
+    {
+        console.log('you have secured B+ with percentage of',avg)
+       
+    }
+   
+}
+else{
+    console.log('you are failed.','you have secured C with perecentage of',avg);
+}
+
+    </script>
+</body>
+</html>

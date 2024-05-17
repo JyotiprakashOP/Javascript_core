@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let choice=prompt('enter choice')
+        let amount=Number(prompt('enter your amount'))
+        let bal=13000
+        let ch1='check'
+        let ch2='deposit'
+        let ch3='withdrawl'
+
+        if(choice==ch1)
+        {
+            console.log(bal);
+
+        }
+        else if(choice==ch2)
+        {
+            bal=bal+amount
+            console.log('updated bal is',bal);
+        }
+        else if(choice==ch3)
+        {
+            bal=bal+amount
+            console.log('upadted bal is',bal);
+        }
+        else{
+            console.log('enter your choice');
+        }
+    </script>
+
+</body>
+</html>
