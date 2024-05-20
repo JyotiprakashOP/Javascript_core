@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+                    //sort()
+        // let arr=['a','c','p','d','x','m','b']
+        // arr.sort()
+        // console.log(arr)
+
+        // let arr=[13,11,2,5,19,11,9,33,5,57,92]
+        // arr.sort()
+        // console.log(arr)
+
+        // let arr=[13,2,9,19,92,81,8,9,18,11]
+        // arr.sort((a,b)=>{return a-b})     //ascending order
+        // console.log(arr)
+
+        // arr .sort((a,b)=>{return b-a})    //descending order
+        // console.log(arr);
+
+
+                    //reverse()
+        // let arr=['jyoti','prakash','mohanty','pranjal','vipul',true,1,3]
+        // arr.reverse()
+        // console.log(arr);
+
+
+                    //concat()
+        // let arr=['jyotiprakash','odia']
+        // let arr2=['mohanty','pranjal','vipul']
+        // let arr3=['santosh','sudhansu']
+        // let arr4=['ram',12345]
+        // let result=arr.concat(arr2,arr3,arr4)
+        // console.log(result);
+
+
+                    //flat()
+        // let arr=[1,3,4,['jyotiprakash',5,6,7,['odisha',1,2,3,[true,['jay shree ram']]]]]
+        // let updatedArray=''
+        // updatedArray=arr.flat()
+        // console.log(updatedArray.flat().flat().flat())   //method-1   
+        
+        // updatedArray=arr.flat(4)         //method-2
+        // console.log(updatedArray)
+       
+
+                    //indexOf()
+        // let arr=[1,2,5,3,4,5,6,7,8,9]
+        // let result=''
+        // result=arr.indexOf(4)
+        // result=arr.indexOf(5)
+        // result=arr.indexOf(5,3)
+        // result=arr.indexOf(100)
+        // console.log(result)
+
+
+                    //lastIndexOf()
+        // let arr=[1,2,5,3,4,5,6,7,8,9,3,4]
+        // let result=''
+        // result=arr.lastIndexOf(3)
+        // result=arr.lastIndexOf(5)
+        // console.log(result)
+
+
+                    //includes()
+        // let arr=[1,2,5,3,4,5,6,7,8,9,3,4]
+        // let result=''
+        //result=arr.includes(2)     //true
+        //result=arr.includes(7)     //true
+        //result=arr.includes(25)    //false
+        // result=arr.includes(2,10) //false
+        // console.log(result);
+
+
+                    //find()
+        // let arr=[
+        //     {name:'jyotiprakash',add:'balasore'},
+        //     {name:'pratyush',add:'baliapal'},
+        //     {name:'shashwat',add:'baliapal'},
+        //     {name:'jyotiprakash',add:'banglore'}
+        // ]
+        // let result=arr.find((itm,i,org_arr)=>
+        //         {
+        //             if(itm.name=='jyotiprakash')
+        //             {
+        //                 return itm
+        //             }
+        //     })
+        // console.log('the result is',result)
+
+
+                    //findIndex()
+        // let arr=[
+        //     {name:'jyotiprakash',add:'balasore'},
+        //     {name:'pratyush',add:'baliapal'},
+        //     {name:'shashwat',add:'baliapal'},
+        //     {name:'jyotiprakash',add:'banglore'}
+        // ]
+        // let result=arr.findIndex((itm,i,org_arr)=>
+        //         {
+        //             if(itm.add=='banglore')
+        //             {
+        //                 return itm
+        //             }
+        //     })
+        // console.log('the result is',result)
+
+
+                    //findLast()
+        // let arr=[
+        //     {name:'jyotiprakash',add:'balasore'},
+        //     {name:'pratyush',add:'baliapal'},
+        //     {name:'shashwat',add:'baliapal'},
+        //     {name:'jyotiprakash',add:'banglore'}
+        // ]
+        // let result=arr.findLast((itm,i,org_arr)=>
+        //         {
+        //             if(itm.name=='jyotiprakash')
+        //             {
+        //                 return itm
+        //             }
+        //     })
+        // console.log('the result is',result)
+
+
+                    //findLastIndex()
+        let arr=[
+            {name:'jyotiprakash',add:'balasore'},
+            {name:'pratyush',add:'baliapal'},
+            {name:'shashwat',add:'baliapal'},
+            {name:'jyotiprakash',add:'banglore'}
+        ]
+        let result=arr.findLastIndex((itm,i,org_arr)=>
+                {
+                    if(itm.name=='jyotiprakash')
+                    {
+                        return itm
+                    }
+            })
+        console.log('the result is',result)
+        
+    </script>
+</body>
+</html>
