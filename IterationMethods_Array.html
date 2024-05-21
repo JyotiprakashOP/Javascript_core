@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+                    //forEach()
+        // let arr=[{name:'jyoti',sal:89},{name:'utsav',sal:50},{name:'vickey',sal:200}]
+        // let sal=0
+        // arr.forEach((item,i,o_arr)=>{
+        //     //normal iteration
+        //     //console.log(item.name);
+           
+        //     //condition
+        //     // if(item.sal>52)
+        //     // {
+        //     //     console.log(item)
+        //     // }
+            
+        //     //update
+        //     // if(item.name=='utsav')
+        //     // {
+        //     //     item.name='utsav jha'
+        //     // }
+
+        //     //sum of salary
+        //     sal+=item.sal
+        // })
+        // console.log(arr,sal)
+
+
+                    //map()
+        // let arr=[{name:'jyoti',sal:89},{name:'utsav',sal:50},{name:'vickey',sal:200}]
+        // let result=arr.map((item,i,o_arr)=>
+        //         {
+        //             // return item.sal+20
+                    
+        //             // if(item.sal>52)
+        //             // {
+        //             //     console.log(item)
+        //             // }
+        //         })
+        //         console.log(result)
+
+
+                    //filter()
+        // let arr=[5,6,7,8,9,11,12,12,13]
+        // let result=arr.filter((item)=>{
+        //     return item>7
+        // })
+        // console.log(result)
+
+
+                    //reduce()
+        // let arr=[4,5,6,7,8,9]
+        // let result=arr.reduce((acc,item,i,o_arr)=>{
+        //     console.log('acc',acc)
+        //     console.log('item',item,'index is',i)
+        //     console.log( 'acc+item',acc+item)
+        // },0)
+        // console.log(result)
+
+
+                    //reduceRight()
+        // let arr=[4,5,6,7,8,9]
+        // let result=arr.reduceRight((acc,item,i)=>{
+        //     console.log('acc',acc)
+        //     console.log('item',item,'index is',i)
+        //     console.log('acc+item',acc+item)
+        // },0)
+        // console.log(result)
+
+
+                    //some()
+        // let arr=[4,5,6,7,8,9]
+        // let result=arr.some((item,i,o_arr)=>{
+        //     return item>6
+        // })
+        // console.log(result)
+
+
+                    //every()
+         let arr=[4,5,6,7,8,9]
+        let result=arr.every((item,i,o_arr)=>{
+            
+                //return item>6             //false
+                return item<10
+                
+        })
+        console.log(result)
+        
+    </script>
+</body>
+</html>
