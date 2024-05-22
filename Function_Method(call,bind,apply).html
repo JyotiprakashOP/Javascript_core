@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //call() method-
+    
+    let obj={
+        name:'jyotiprakash',
+        add:'odisha',
+        isGender(){
+            console.log('male');
+        }
+        isActive(){
+            return true
+        }
+    }
+    function print(){
+        console.log(this.name, this.add)
+        this.isGender();
+        this.isActive();
+       
+    }
+    print.call(obj)
+    </script>
+</body>
+</html>
