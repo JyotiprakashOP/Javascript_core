@@ -23,7 +23,32 @@
         
        
     // }
-    // print.call(obj)
+    // print.call(obj);
+
+
+            //apply()
+    // let obj={
+    //     name:'jyotiprakash',
+    //     age:22
+    // }
+    // function print(add1,add2,add3){
+    //     console.log(`${this.name} and ${this.age}, my address is ${add1}, my 2nd address is ${add2}, my 3rd address is ${add3}`)
+    // }
+    // print.apply(obj,['blr','odisha','bbsr'])
+
+
+            //bind()
+        let obj={
+            name:'jyotiprakash',
+            age:22
+        }
+        function print(sal){
+        console.log(`my name is ${this.name} and my age is ${this.age} and my salary is ${sal}`)
+        }
+        let ref=print.bind(obj,2300)
+        ref()
+    
+
     </script>
 </body>
 </html>
