@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr=[
+            {name:'utsav',sal:1000,age:25,address:'delhi'},
+            {name:'vickey',sal:1500,age:23,address:'odisha'},
+            {name:'D',sal:800,age:24,address:'delhi'},
+            {name:'C',sal:700,age:30,address:'nepal'},
+            {name:'utsav',sal:2000,age:30,address:'jaipur'},
+            {name:'utx',sal:3000,age:35,address:'jaipur'}
+        ]
+        //1
+        let result=''
+        //    result=arr.map((item)=>{
+        //     return item.name
+        //    })
+        //    console.log(result)
+       
+        //4
+        // result=arr.map((item)=>{
+        //     if(item.address=='delhi'){
+        //         console.log(item)
+        //     }
+        // })
+
+        //5
+        // result=arr.find((item)=>{
+        //     if(item.age>=25){
+        //             console.log(item)
+        //     }
+        // })
+
+        //6
+        // sum=0
+        // result=arr.map((item)=>{
+        //     sum+=item.sal
+        // })
+        // console.log(sum)
+
+        //7
+        // avg=0
+        // result=arr.map((item)=>{
+        //     avg= (avg+item.sal)/arr.length
+        // })
+        // console.log(avg)
+
+        //8
+        // result=arr.length
+        // console.log(result)
+
+        //9
+        // let x= arr.map((item)=>{
+            
+        //     if(item.name=='D')
+        //     {
+        //         item.name='D_company'
+
+        //     }
+        //     return item.name
+        // })
+        // console.log(x)
+
+        //2
+        // result=arr.reduce((acc,item)=>{
+        //     if(item.sal>acc.sal)
+        //     {
+        //         acc=item
+        //     }
+        //     return acc
+        // })
+        // console.log(result)
+
+        //3
+        // result=arr.reduce((acc,item)=>{
+        //     if(item.sal<acc.sal)
+        //     {
+        //         acc=item
+        //     }
+        //     return acc
+        // })
+        // console.log(result)
+
+        //10
+        // result=arr.map((item)=>{
+            
+        //     if(item.name.includes('u','t'))
+        //     {
+        //         console.log(item.name)
+        //     }
+        // })
+        
+        //11
+        result=arr.map((item,i,o_arr)=>{
+            return item.sal
+        }).sort((a,b)=>{
+            return a-b
+            }
+            
+        
+        )
+        arr.result.call(o_arr)
+        
+        
+        
+        
+        
+    </script>
+</body>
+</html>
