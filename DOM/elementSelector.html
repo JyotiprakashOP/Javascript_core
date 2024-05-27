@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+                
+    <div class="container">
+        <h1 id="id1" class="head">hello</h1>
+        <h1 id="id2" class="head">how are you</h1>
+        <h1 id="id3" class="head">i am fine !</h1>
+    </div>
+
+
+    <script>
+                //1.singleElementSelector
+
+
+        //Triversing
+    // console.log(document.body.childNodes[1].childNodes[3])
+        
+        //getElementById()
+    // let result=''
+    // result=document.getElementById('id2');
+    // console.log(result);
+
+        //querySelector()
+    // let result=''
+    // // result=document.querySelector('#id2')
+    // // result=document.querySelector('.head')      //first match
+    // // result=document.querySelector('h1')
+    // result=document.querySelector('div>h1')
+    // console.log(result)
+
+
+                //2.Gourpselector
+            
+            //getelementbyclassname()
+        // let result=document.getElementsByClassName('head')
+        // for( let i of result) i.style.color='red'
+
+            //getelementbytagname()
+        // let result=document.getElementsByTagName('h1')
+        // console.log(result)
+
+            //QuerySelector
+                //classname
+        // let result=document.querySelectorAll('.head')
+        // console.log(result)
+                //tagname
+        // let result=document.querySelectorAll('h1')
+        // console.log(result)
+                //query
+        // let result=document.querySelectorAll('.container>h1')
+        // console.log(result)
+
+    </script>
+</body>
+</html>

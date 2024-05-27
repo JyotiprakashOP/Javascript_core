@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="hello">Traversing in dom</h1>
+    <div id="container">
+        <h1 id="head">hello i am first child</h1>
+        <p id="para">Hello i am second child</p>
+    </div>
+    <script>
+                    //parent
+    
+//1. 
+    // let result=document.getElementById('hello')
+    // console.log(result.parentElement)
+    // console.log(result.parentNode)
+    // result.parentElement.style.backgroundColor='red'
+//2. 
+    // let result=document.getElementById('para')
+    // console.log(para.parentNode)
+    // console.log(para.parentElement)
+
+
+                    //child
+    let result=''
+     
+    result=document.getElementById('container')
+    
+    console.log(container.childNodes)
+    console.log(container.children)
+        
+    </script>
+</body>
+</html>
