@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .design{
+            border:1px solid red;
+            height: 75px;
+            width: 80px;
+            margin: 2px;
+        }
+        #container{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+        <!-- 1. -->
+    <!-- <div id="container">
+        
+    </div> -->
+
+    <!-- 2. -->
+        <div id="container">
+
+        </div>
+    <script>
+    //1
+        // let result=document.getElementById('container')
+        // result.style.color='red'
+        // result.style.border='2px solid red'
+        // result.style.height='500px'
+        // result.style.width='500px'
+        // result.style.backgroundColor='yellow'
+        // result.innerText="hello how are you"
+
+    // 2
+        let result=document.getElementById('container')
+        let str=''
+        for(let i=1;i<=10;i++)
+        {
+            let random=Math.trunc(Math.random()*200)
+            str+=`<div class='design' style='background-color:rgb(${random*10},${random-100},${random-50})'> text ${i}</div>`
+        }
+        container.innerHTML=str
+    </script>
+
+
+</body>
+</html>
