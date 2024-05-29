@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <p id="para1" class="para">Lorem1</p>
+        <p id="para2" class="para">Lorem2</p>
+        <p id="para3" class="para">Lorem3</p>
+        <p id="para4" class="para">Lorem4</p>
+        <p id="para5" class="para">Lorem5</p>
+    </div>
+    <div id="cont2">
+        hello how are you
+        <p style="display: none;">hiii.......</p>
+    </div>
+    <script>
+            //createElement
+        // let container=document.getElementById('container')
+        // let button=document.createElement('button')
+        // button.innerText='click me'
+        
+        //appendChild
+        // container.appendChild(button)
+        
+        //append
+        // let h1=document.createElement('h1')
+        // h1.innerText='Hello'
+        // container.append(button,h1)
+        // container.append('hello i am append')
+
+        //prepend()
+        // container.prepend(button,h1)
+
+        //after
+        // container.after(button)
+
+        // insertBefore
+        // let h1=document.createElement('h1')
+        // h1.innerText='Hello'
+        // container.insertBefore(h1,document.getElementById('para3'))
+
+        //textContent
+        // let cont2=document.getElementById('cont2');
+        // console.log(cont2.innerText);
+        // console.log(cont2.textContent);
+
+        //replaceChild
+        // let h6=document.createElement('h6')
+        // h6.textContent='Hello how are you'
+        // h6.style.color="red"
+        // container.replaceChild(h6,container.lastElementChild)
+
+        //replaceWith
+        // let para3=document.getElementById('para3')
+        // para3.replaceWith('hello');
+        // para3.replaceWith(h6)
+
+        //cloneNode
+        // let deep=container.cloneNode(true)
+        // document.body.appendChild(deep)
+        
+        //removeChild
+        container.removeChild(document.getElementById('para3'))
+    </script>
+</body>
+</html>

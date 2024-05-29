@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <table id="table">
+
+   </table> 
+   <script>
+    let table=document.getElementById('table')
+    let tr=''
+    let td=''
+    // for(i=1;i<=5;i++){
+    //    let tabrow = document.createElement('tabrow')
+    //    table.append(tabrow)
+    //    if(i%2==0)
+    //    {
+    //     tabrow.style.backgroundColor="red"
+    //    }
+    //    else{
+    //     tabrow.style.backgroundColor="yellow"
+    //    }
+    //    for(j=1;j<=5;j++){
+    //     let tabdata=document.createElement('tabdata');
+    //     tabrow.append(tabdata);
+    //     tabdata.innerText=`lorem${Math.trunc(Math.random()*10)}`;
+    //     tabdata.style.border='2px solid black'
+    //     tabdata.style.padding='20px'
+    //    }
+       
+    // }
+
+    for(i=1;i<=5;i++){
+        tr=document.createElement('tr')
+        table.append(tr)
+        if(i%2==0){
+            tr.style.backgroundColor="yellow"
+        }
+        else{
+            tr.style.backgroundColor="red"
+        }
+        
+        for(j=1;j<=5;j++){
+            td=document.createElement('td')
+            tr.append(td);
+            td.innerText=`hello ${j}`
+            td.style.border="2px solid black"
+            td.style.padding="20px"
+        }
+        tr+="\n"
+    }
+    
+   </script>
+</body>
+</html>
