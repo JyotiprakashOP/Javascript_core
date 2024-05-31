@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        tr{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table id="table">
+
+    </table> 
+    
+    <script>
+        let arr=[
+            {name:'Spider Man',url:'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3BpZGVybWFufGVufDB8fDB8fHww',url1:`https://www.marvel.com/characters/spider-man-peter-parker`},
+            {name:'Iron Man',url:'https://images.unsplash.com/photo-1629003493933-662e48475e89?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGlyb24lMjBtYW58ZW58MHx8MHx8fDA%3D',url1:`https://www.marvel.com/characters/iron-man-tony-stark`},
+            {name:'Groot',url:'https://images.unsplash.com/photo-1592513002316-e4fa19175023?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2FwdGFpbiUyMGFtZXJpY2F8ZW58MHx8MHx8fDA%3D',url1:`https://www.marvel.com/characters/groot`},
+            {name:'Thor',url:'https://images.unsplash.com/photo-1536895878856-6738f6d20051?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dGhvcnxlbnwwfHwwfHx8MA%3D%3D',url1:`https://www.marvel.com/characters/thor-thor-odinson`},
+            {name:'Hulk',url:'https://images.unsplash.com/photo-1608278047522-58806a6ac85b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aHVsa3xlbnwwfHwwfHx8MA%3D%3D',url1:`https://www.marvel.com/characters/hulk-bruce-banner`}
+        ]
+        let table=document.getElementById('table')
+        let tr=''
+        let td=''
+        let img=''
+        let a=''
+        for(i=0;i<=1;i++){
+            tr=document.createElement('tr')
+            table.append(tr)
+            
+            
+            for(j=0;j<=4;j++){
+                td=document.createElement('td')
+                table.append(td)
+                if(i==0){
+                    td.innerText=`${arr[j].name}`
+                    td.style.border='1px solid black'
+                    td.setAttribute('align',"center")
+                    
+                }
+                else{
+                a=document.createElement('a')
+                td.append(a)
+                img=document.createElement('img')
+                a.append(img)
+                img.setAttribute('src',`${arr[j].url}`)
+                img.setAttribute('height',"450px")
+                img.setAttribute('width',"300px")
+                img.style.border='1px solid black'
+                a.setAttribute('href',`${arr[j].url1}`)
+
+                } 
+                
+            }
+
+        }
+        console.log(table)
+
+
+
+
+    </script>
+</body>
+</html>
