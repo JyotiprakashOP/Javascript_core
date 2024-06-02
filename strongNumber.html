@@ -7,21 +7,48 @@
 </head>
 <body>
     <script>
-        // for(i=1;i<=100;i++){
+        // for(i=1;i<=1000;i++){
         //     let temp=i;
         //     let sum=0
-        //     while(temp>0){
-        //         temp=temp-1
-                
-        //         let rem=Math.trunc(temp%10)
-        //         sum+=rem
-        //     }
-        //     if(temp==i)
+        //     let rem=0
+        //     let fac=1
+        //     while(temp>0)
         //     {
+        //         rem=temp%10
+        //         for(j=1;j<=rem;j++){
+        //             fac=fac*j
+
+        //         }
+        //         sum+=fac
+        //         temp=Math.trunc(temp/10)
+
+        //     }
+        //     if(sum==i){
         //         console.log(i)
         //     }
+
+            
+            
+            
         // }
-        console.log(28387 / 10)
+        let count = 0
+        for (let i = 1; i <= 1000; i++) {
+            let temp = i
+            let sum = 0
+            while (temp > 0) {
+                let rem = temp % 10
+                let fact = 1;
+                for (let j = 1; j <= rem; j++) {
+                    fact = fact * j
+                }
+                sum += fact
+                temp = Math.trunc(temp / 10)
+            }
+            if (sum == i) {
+                console.log(i)
+            }
+        }
+        
     </script>
 </body>
 </html>
