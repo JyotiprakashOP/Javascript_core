@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container"></div>
+    <script>
+        let count=2
+        // let x = prompt("enter label")
+        // let y = prompt("enter placeholder")
+        // let container=document.getElementById('container');
+        // let inputBox = document.createElement('input')
+        // let label = document.createElement('label')
+        // label.innerText=`${x}`
+        // inputBox.setAttribute('placeholder',`${y}`)
+        // container.append(label,inputBox)
+        function click(){
+            for(let i = 1; i <=count;i++){
+            let x = prompt("enter label")
+        let y = prompt("enter placeholder")
+        let container=document.getElementById('container');
+        let inputBox = document.createElement('input')
+        let label = document.createElement('label')
+        label.innerText=`${x}`
+        inputBox.setAttribute('placeholder',`${y}`)
+        container.append(label,inputBox,button)
+        }
+
+        }
+
+        
+    
+        let button = document.createElement('button')
+        button.innerText='submit'
+        button.setAttribute('onclick',"click()")
+        
+
+
+        
+    </script>
+</body>
+</html>
