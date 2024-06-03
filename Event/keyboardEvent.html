@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="head" style="font-size: 50px">hello i am mouse event</h1>
+    <button id="btn" style="padding: 20px">click here</button>
+    <div id="container" style="height: 30px; background-color: aqua"></div>
+    <input type="text" placeholder="type something" id="input" />
+    <script>
+      let head = document.getElementById("head");
+      let btn = document.getElementById("btn");
+      let container = document.getElementById("container");
+      let input = document.getElementById("input");
+      //KeyBoard-Events
+
+      //onkeydown(works for every key)
+      // input.addEventListener('keydown',()=>{
+      //     console.log(Math.random()*100)
+      // })
+
+      //onkeypress(only works on letter and number key)
+      // input.addEventListener('keypress',()=>{
+      //     console.log(Math.random()*100)
+      // })
+
+      //onkeyup(works with every button)
+      // input.addEventListener('keyup',()=>{
+      //     console.log(Math.random()*100)
+      // })
+    </script>
+  </body>
+</html>
