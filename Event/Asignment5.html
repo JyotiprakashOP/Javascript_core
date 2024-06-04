@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container" style="height: 100px;">
+        
+    </div>
+    <button id="btn1">Credit</button>
+    <button id="btn2">Debit</button>
+    <script>
+        let amount=5000
+        document.getElementById('container').innerText=`Your bank balance is ${amount}`
+        
+        document.getElementById('btn1').addEventListener('click',()=>{
+            let choice1=+prompt('enter your credit amount')
+            if(choice1>0){
+                amount=amount-choice1
+                document.getElementById('container').innerText=`your available amount is${amount}`;
+            }
+            if(choice1==0){
+                document.getElementById('container').innerText=`your available amount is ${amount}`;
+            }
+        })
+        document.getElementById('btn2').addEventListener('click',()=>{
+            let choice2=+prompt('enter your debit amount');
+            if(choice2>0){
+                amount=amount+choice2
+                document.getElementById('container').innerText=`your available amount is${amount}`;
+            }
+            if(choice2==0){
+                document.getElementById('container').innerText=`your available amount is ${amount}`;
+            }
+        })
+
+        
+        
+    </script>
+</body>
+</html>

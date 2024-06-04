@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Counter</title>
+<style>
+   
+</style>
+</head>
+<body>
+    <div id="container">1</div>
+    <button id="increasebtn" onclick="increase()">Increase</button>
+    <button id="decreasebtn" onclick="decrease()">Decrease</button>
+
+    <script>
+        let count=1
+        let increasebtn=document.getElementById('increasebtn');
+        let decreasebtn=document.getElementById('decreasebtn');
+        let container=document.getElementById('container')
+         increasebtn.addEventListener('click',()=>{
+            count++;
+            container.innerText=count;
+            if(count>1){
+                decreasebtn.style.display='inline-block';
+            }
+         })
+         decreasebtn.addEventListener('click',()=>{
+            count--;
+            container.innerText=count;
+            if(count==1){
+                decreasebtn.style.display='none'
+            }
+         })
+
+        
+
+    </script>
+</body>
+</html>

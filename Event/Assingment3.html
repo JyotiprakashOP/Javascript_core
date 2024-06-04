@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container" style="height: 100px"></div>
+    <button id="btn" onclick="random()">click</button>
+
+    <script>
+      let container = document.getElementById("container");
+      let btn = document.getElementById("btn");
+      
+      for(let count=1;count<=20;count++){
+        if (count <= 10) {
+        function random() {
+          let result = Math.random().toString(36).substring(2, 7);
+          container.innerText = result;
+          btn.style.backgroundColor = "red";
+          
+        }
+      }
+      else {
+        function random() {
+          let result = Math.random().toString(36).substring(2, 7);
+          container.innerText = result;
+          btn.style.backgroundColor = "blue";
+          
+        }
+      }
+      }
+    </script>
+  </body>
+</html>

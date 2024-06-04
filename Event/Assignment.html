@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="Enter your name" id="input"><br>
+    <button id="btn1">Red</button>
+    <button id="btn2">Aqua</button>
+    <button id="btn3">Blue</button>
+    <button id="btn4">Orange</button>
+    <script>
+        let input=document.getElementById('input')
+        let btn1=document.getElementById('btn1')
+        let btn2=document.getElementById('btn2')
+        let btn3=document.getElementById('btn3')
+        let btn4=document.getElementById('btn4')
+        btn1.addEventListener('click',()=>{
+            input.style.backgroundColor='red'
+        })
+        btn2.addEventListener('click',()=>{
+            input.style.backgroundColor='aqua'
+        })
+        btn3.addEventListener('click',()=>{
+            input.style.backgroundColor='blue'
+        })
+        btn4.addEventListener('click',()=>{
+            input.style.backgroundColor='Orange'
+        })
+    </script>
+</body>
+</html>
