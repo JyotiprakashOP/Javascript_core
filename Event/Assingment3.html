@@ -28,7 +28,7 @@
         }
         button.addEventListener('click',()=>{
             count++;
-            input.value= Math.random().toString(36).substring(2,7);
+            input.value= `lorem ${Math.trunc(Math.random()*100)}`
             color();
 
         })

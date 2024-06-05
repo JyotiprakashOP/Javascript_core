@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container"></div>
+
+    <script>
+      let arr = ["pranjal", "jyotiprakash", "vipul", "nirmal"];
+      let input = prompt("enter your domain name");
+      
+      let container = document.getElementById("container");
+      container.style.height = "100px";
+      container.style.fontSize = "50px";
+      container.innerText = input;
+
+      let find = false;
+      let result = arr.find((item) => {
+        
+        if (item == input) {
+          container.innerText = `${input} domain is not available`;
+          container.style.backgroundColor = "red";
+
+          return (find = true);
+        }
+      });
+
+      if (find == false) {
+        arr.push(input);
+        container.innerText = `${input} domain is available`;
+        container.style.backgroundColor = "green";
+      }
+    </script>
+  </body>
+</html>
