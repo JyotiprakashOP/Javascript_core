@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        *{
+            margin: 0;
+        }
+      #container {
+        text-align: center;
+        height: 100vh;
+    
+      }
+      #head {
+        display: inline;
+        background-color: red;
+        padding: 10px 40px;
+      }
+      #subcontainer {
+        height: 120px;
+        width: 300px;
+        background-color: rgb(37, 201, 230);
+        margin-left: 40%;
+        margin-top: 10px;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1 id="head"></h1>
+      <div id="subcontainer" style="visibility: hidden">
+        <table>
+            <tr>
+                <td><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum ipsa dolorum perspiciatis et quisquam quo ad modi architecto! Perspiciatis possimus mollitia id nihil. Doloribus, neque cumque distinctio quibusdam laboriosam harum.</p></td>
+                <td id="tdwrong" ><i class="bi bi-x-lg" id="wrong" ></i></td>
+            </tr>
+        </table>
+      </div>
+    </div>
+    <script>
+      let container = document.getElementById("container");
+      let subcontainer = document.getElementById("subcontainer");
+      let wrong=document.getElementById('wrong')
+      let head = document.getElementById("head");
+      head.innerText = "Hello";
+      head.addEventListener("click", () => {
+        subcontainer.style.visibility = "visible";
+        container.style.backgroundColor='grey'
+      });
+    //   container.addEventListener('click',()=>{
+    //     if(container!=head && container!=subcontainer){
+    //         subcontainer.style.visibility='hidden'
+    //     }
+        
+    //   })
+      wrong.addEventListener('click',()=>{
+        subcontainer.style.visibility='hidden'
+      })
+    </script>
+  </body>
+</html>

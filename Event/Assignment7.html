@@ -16,12 +16,12 @@
     <script>
       let container = document.getElementById("container");
       container.innerText = "Hello world";
-      container.style.color='red'
+      container.style.color = "red";
       container.style.marginLeft = "46%";
       let input = document.getElementById("input");
       input.style.marginLeft = "43%";
       let icon = document.getElementById("icon");
-      let eyeslash=document.getElementById('eyeslash')
+      let eyeslash = document.getElementById("eyeslash");
       icon.style.marginLeft = "10px";
       icon.addEventListener("click", () => {
         icon.innerHTML = `<i class="bi bi-eye"></i>`;
@@ -31,6 +31,7 @@
         icon.innerHTML = `<i class="bi bi-eye-slash"></i>`;
         input.type = "password";
       });
+      
     </script>
   </body>
 </html>
