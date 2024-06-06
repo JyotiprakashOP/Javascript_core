@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      form {
+        text-align: center;
+
+        margin-top: 15%;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <input type="number" id="consumption" placeholder="Your consumption" />
+
+      <br />
+      <br />
+
+      <input type="text" id="name" placeholder="Name" />
+      <br />
+      <br />
+      <span>Catagory :</span
+      ><input type="radio" value="general" name="caste" />General
+      <input type="radio" value="obc" name="caste"/>OBC
+      <input type="radio" value="sc" name="caste" />SC/ST
+
+      <br />
+      <br />
+      <button id="btn">Submit</button>
+    </form>
+    <script>
+      let consumption = document.getElementById("consumption");
+      let name = document.getElementById("name");
+      let btn = document.getElementById("btn");
+      
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        let caste = document.querySelector('input[name="caste"]:checked');
+        let value=[]
+
+        if (!consumption.value || !name.value) {
+          alert("please fill the form completely");
+        } else {
+          console.log(consumption.value, name.value, caste.value,value);
+          name.value = "";
+          consumption.value = "";
+          caste.value = "";
+        }
+      });
+    </script>
+  </body>
+</html>
