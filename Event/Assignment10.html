@@ -8,12 +8,17 @@
       form {
         text-align: center;
 
-        margin-top: 15%;
+        margin-top: 5%;
         padding: 10px;
+      }
+      #container{
+        text-align: center;
+        margin-top: 100px;
+        color: red;
       }
     </style>
   </head>
-  <body>
+  <body><div id="container"><h2>please fill the form</h2></div>
     <form>
       <input type="number" id="consumption" placeholder="Your consumption" />
 
@@ -23,8 +28,7 @@
       <input type="text" id="name" placeholder="Name" />
       <br />
       <br />
-      <span>Catagory :</span
-      ><input type="radio" value="general" name="caste" />General
+      Catagory :<input type="radio" value="general" name="caste" />General
       <input type="radio" value="obc" name="caste"/>OBC
       <input type="radio" value="sc" name="caste" />SC/ST
 
@@ -36,19 +40,60 @@
       let consumption = document.getElementById("consumption");
       let name = document.getElementById("name");
       let btn = document.getElementById("btn");
-      
+      let container=document.getElementById('container')
       btn.addEventListener("click", (e) => {
         e.preventDefault();
         let caste = document.querySelector('input[name="caste"]:checked');
-        let value=[]
 
-        if (!consumption.value || !name.value) {
-          alert("please fill the form completely");
-        } else {
-          console.log(consumption.value, name.value, caste.value,value);
-          name.value = "";
-          consumption.value = "";
-          caste.value = "";
+        if(caste.value=="general"){
+              if(consumption.value<=100){
+                container.innerText=`${name.value}, your bill amount is 0rs `;
+
+              }
+              if(consumption.value>100 || consumption.value<=300){
+                container.innerText=`${name.value}, your bill amount is ${(consumption.value-100)*8}rs`
+              }
+              if(consumption.value>300){
+                container.innerText=`${name.value}, your bill amount is ${(consumption.value-100)*15}rs`
+              }
+              if(consumption.value-100<0){
+                container.innerText=`${name.value}, your bill amount is 0rs `;
+              }
+            }
+        if(caste.value=="obc"){
+              if(consumption.value<=200){
+                container.innerText=`${name.value}, your bill amount is 0rs `;
+
+              }
+              if(consumption.value>200 || consumption.value<=400){
+                container.innerText=`${name.value}, your bill amount is ${(consumption.value-200)*8}rs`
+              }
+              if(consumption.value>400){
+                container.innerText=`${name.value}, your bill amount is ${(consumption.value-200)*15}rs`
+              }
+              if(consumption.value-200<0){
+                container.innerText=`${name.value}, your bill amount is 0rs `;
+              }
+        }
+        if(caste.value=="sc"){
+              if(consumption.value<=500){
+                container.innerText=`${name.value}, your bill amount is 0rs `;
+
+              }
+              if(consumption.value>500){
+                container.innerText=`${name.value}, your bill amount is ${(consumption.value-500)*3}rs`
+              }
+              if(consumption.value-500<0){
+                container.innerText=`${name.value}, your bill amount is 0rs `;
+              }
+              
+        }
+        if(!name.value || !consumption.value ||!caste.value){
+          alert('please fill all the fields')
+        }
+        else{
+          name.value="";
+          consumption.value=""
         }
       });
     </script>
