@@ -68,7 +68,7 @@
         globalArr.push(obj);
         console.log(globalArr);
         input.value = "";
-        printHandler();
+        printHandler(globalArr);
         textcount.innerText = `${globalArr.length}`;
       }
     });
@@ -89,16 +89,14 @@
 
     deleteAll.addEventListener("click", () => {
       globalArr = [];
-      printHandler();
+      printHandler(globalArr);
+      textcount.innerText = `${globalArr.length}`;
     });
 
-    function deleteitem(){
-    let dlt= globalArr.filter((item)=>{
-      if(obj.id != obj.id){
-        return item
-      }
-    });
-    printHandler(dlt)
+    function deleteitem(id){
+    globalArr =  globalArr.filter(item=>item.id != obj.id);
+    printHandler(globalArr)
+    
     }
 
 
