@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            text-align: center;
+            
+        }
+        #container{
+            text-align: center;
+            margin-top: 15%;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">Enter your number</div>
+    <form action="">
+        <br>
+        <br>
+        <input type="text" id="input">
+        <br>
+        <br>
+        <button id="btn">submit</button>
+    </form>
+    <script>
+        let num=50
+        let input=document.getElementById('input');
+        let container=document.getElementById('container');
+        let btn=document.getElementById('btn');
+
+        btn.addEventListener('click',(e)=>{
+            e.preventDefault();
+            for(i=1;i<=3;){
+                if(i<=1){
+                    if(input.value==num){
+                        container.innerText='exelent'
+                    }
+                    else{
+                        container.innerText='not matched'
+                        input.value=''
+                    }
+                }
+                if(i<=2){
+                    if(input.value==num){
+                        container.innerText='good'
+                    }
+                    else{
+                        container.innerText='not matched'
+                        input.value=''
+                    }
+                    i++
+                }
+                if(i<=3){
+                    if(input.value==num){
+                        container.innerText='good'
+                    }
+                    else{
+                        container.innerText='not matched';
+                        input.value=''
+                    }
+                    i++
+                }
+            }
+            
+        })
+
+
+
+    </script>
+</body>
+</html>

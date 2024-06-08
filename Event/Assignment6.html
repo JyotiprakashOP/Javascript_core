@@ -4,35 +4,67 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      form{
+        text-align: center;
+      }
+      #container{
+        text-align: center;
+        margin-top: 15%;
+        
+        
+      }
+      input{
+        padding: 10px 20px;
+      }
+      
+    </style>
   </head>
   <body>
-    <div id="container"></div>
+    <div id="container">Enter your domain names</div>
+    <form action="">
+      <br>
+      <br>
+      <input type="text" id="input" placeholder="Enter your domain name">
+      <br>
+      <br>
+      <button id="btn">Register</button>
+      <br>
+      <br>
+
+      <button id="showall">Show all Domains</button>
+      
+    </form>
 
     <script>
-      let arr = ["pranjal", "jyotiprakash", "vipul", "nirmal"];
-      let input = prompt("enter your domain name");
+      let arr=['jyoti','pranjal','vipul','nirmal']
+      let container=document.getElementById('container');
+      let input=document.getElementById('input');
+      let btn=document.getElementById('btn');
+      let aside=document.getElementById('aside');
+      let showall=document.getElementById('showall')
+
       
-      let container = document.getElementById("container");
-      container.style.height = "100px";
-      container.style.fontSize = "50px";
-      container.innerText = input;
-
-      let find = false;
-      let result = arr.find((item) => {
-        
-        if (item == input) {
-          container.innerText = `${input} domain is not available`;
-          container.style.backgroundColor = "red";
-
-          return (find = true);
+      btn.addEventListener('click',(e)=>{
+        e.preventDefault();
+        if(arr.includes(input.value)){
+          container.innerText=`${input.value} is not available`;
+          input.value='';
+        }
+        else{
+          arr.push(input.value)
+          container.innerText=`${input.value} is available`;
+          console.log(arr)
+          input.value='';
         }
       });
+      let domains=document.createElement('h3')
+      container.append(domains);
 
-      if (find == false) {
-        arr.push(input);
-        container.innerText = `${input} domain is available`;
-        container.style.backgroundColor = "green";
-      }
+      showall.addEventListener('click',(e)=>{
+        e.preventDefault()
+          domains.innerText=arr.join()
+        });
     </script>
   </body>
 </html>
