@@ -29,9 +29,9 @@
       </div>
       <div class="row d-flex justify-content-evenly text-center mt-5">
         <div class="col-4">
-          <span>sort</span
+          <span id="sort">sort</span
           ><select>
-            <option>A-Z</option>
+            <option onclick="az()">A-Z</option>
             <option>Z-A</option>
           </select>
         </div>
@@ -59,52 +59,64 @@
 
     submit.addEventListener("click", () => {
       let obj = {
-          id: Math.trunc(Math.random() * 100000),
-          text: input.value,
-        };
+        id: Math.trunc(Math.random() * 100000),
+        text: input.value,
+      };
       if (!input.value) {
         alert("please give the input");
       } else {
-        
+        printHandler();
         globalArr.push(obj);
-        console.log(globalArr);
-        input.value = "";
-        printHandler(globalArr);
-        textcount.innerText = `${globalArr.length}`;
+      console.log(globalArr);
+      input.value = "";
+      printHandler(globalArr);
+      textcount.innerText = `${globalArr.length}`;
       }
+      
     });
 
     function printHandler() {
+      let carditem = document.getElementById("card");
       let str = "";
-      let carditem = globalArr.map((item) => {
+      globalArr.map((item) => {
         str += `<div class="card mt-3" >
                     <div class="card-body">
                         <p>${item.text}</p>
-                        <button class="btn btn-primary">edit</button>
-                        <button class="btn btn-danger" id="dlt" onclick="deleteitem">delete</button>
+                        <button class="btn btn-primary"  onclick="edititem(${item.id})">edit</button>
+                        <button class="btn btn-danger" id="dlt" onclick="deleteitem(${item.id})">delete</button>
                     </div>
                 </div>`;
       });
-      body.innerHTML = str;
+      carditem.innerHTML = str;
     }
 
     deleteAll.addEventListener("click", () => {
       globalArr = [];
       printHandler(globalArr);
       textcount.innerText = `${globalArr.length}`;
+      
     });
 
-    function deleteitem(id){
-    globalArr =  globalArr.filter(item=>item.id != obj.id);
-    printHandler(globalArr)
-    
+    function deleteitem(id) {
+      globalArr = globalArr.filter((item) => item.id !== id);
+      printHandler(globalArr);
     }
 
+    function edititem(id) {
+      let edit = globalArr.find((item) => item.id === id);
+      if (edit) {
+        input.value = edit.input;
+        
+        globalArr = globalArr.filter((item) => item.id !== id);
+        printHandler(globalArr);
+      }
+      console.log(edit)
+    }
 
-
-
-
-
+    function az(text){
+     
+      input.sort()
+    }
 
 
 
