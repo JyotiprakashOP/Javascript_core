@@ -58,13 +58,14 @@
     let globalArr = [];
 
     submit.addEventListener("click", () => {
-      if (!input.value) {
-        alert("please give the input");
-      } else {
-        let obj = {
+      let obj = {
           id: Math.trunc(Math.random() * 100000),
           text: input.value,
         };
+      if (!input.value) {
+        alert("please give the input");
+      } else {
+        
         globalArr.push(obj);
         console.log(globalArr);
         input.value = "";
