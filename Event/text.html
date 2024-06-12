@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Input Creation</title>
+</head>
+<body>
+  <h2>Select Input Type:</h2>
+  <select id="inputType">
+    <option value="text">Text</option>
+    <option value="password">Password</option>
+    <option value="email">Email</option>
+    <option value="number">Number</option>
+  </select>
+  <button onclick="addInput()">Add Input</button>
+  <div id="inputContainer"></div>
+
+  <script>
+    function addInput() {
+      var inputType = document.getElementById("inputType").value;
+      var input = document.createElement("input");
+      input.type = inputType;
+      document.getElementById("inputContainer").appendChild(input);
+      document.getElementById("inputContainer").appendChild(document.createElement("br"));
+    }
+  </script>
+</body>
+</html>
