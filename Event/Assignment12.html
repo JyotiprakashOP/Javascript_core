@@ -8,8 +8,8 @@
 </head>
 <body>
     <div class="container">
-      <div class="row">
-        <div class="col">
+      <div class="row mt-4">
+        <div class="col-4">
           
             <select name="" id="typeSelect" class="form-select" onchange="selectHandler(event)">
               <option value="" selected>Select the type</option>
@@ -20,8 +20,8 @@
           
           
         </div>
-        <div class="col">
-          <input type="text" class="form-control" id="input">
+        <div class="col-7">
+          <input type="text" class="form-control" id="input" >
         </div>
         <div class="col">
           <button class="btn btn-primary" id="submit">Submit</button>
@@ -64,10 +64,10 @@
       function printHandler(){
         let str=''
         arr.forEach((item)=>{
-          str+=` <div class="card">
+          str+=` <div class="card mt-4">
             <div class="card-body">
               <input type="${item.type}" class="form-control" placeholder="${item.text}">
-              <button class="btn btn-danger" onclick="deleteHandler(${item.id})" id="${item.id}">Delete</button>
+              <button class="btn btn-danger mt-3" onclick="deleteHandler(${item.id})" id="${item.id}">Delete</button>
             </div>
           </div>`
         })
@@ -83,11 +83,11 @@
         printHandler(arr)
       }
       
-      function selectHandler(e){
-        if(typeSelect=="Text"){
-          // type:'password'
-        }
-      }
+      // function selectHandler(e){
+      //   if(typeSelect=="Text"){
+      //     // type:'password'
+      //   }
+      // }
     </script>  
 </body>
 </html>
