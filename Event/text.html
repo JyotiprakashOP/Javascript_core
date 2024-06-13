@@ -14,15 +14,30 @@
     <option value="number">Number</option>
   </select>
   <button onclick="addInput()">Add Input</button>
-  <div id="inputContainer"></div>
+  <div id="inputContainer">
+    <input type="text" id="initialInput" placeholder="Enter placeholder text">
+    <button onclick="removeInput(this)">Delete</button>
+  </div>
 
   <script>
     function addInput() {
       var inputType = document.getElementById("inputType").value;
+      var placeholderText = document.getElementById("initialInput").value;
       var input = document.createElement("input");
       input.type = inputType;
-      document.getElementById("inputContainer").appendChild(input);
-      document.getElementById("inputContainer").appendChild(document.createElement("br"));
+      input.placeholder = placeholderText;
+      var deleteButton = document.createElement("button");
+      deleteButton.textContent = "Delete";
+      deleteButton.onclick = function() { removeInput(this); };
+      var container = document.createElement("div");
+      container.appendChild(input);
+      container.appendChild(deleteButton);
+      container.appendChild(document.createElement("br"));
+      document.getElementById("inputContainer").appendChild(container);
+    }
+
+    function removeInput(button) {
+      button.parentNode.parentNode.removeChild(button.parentNode);
     }
   </script>
 </body>
