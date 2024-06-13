@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #parent2{
+            height: 500px;
+            width: 500px;
+            display: grid;
+            place-items: center;
+            background-color: red;
+            
+            
+        }
+        #parent1{
+            height: 300px;
+            width: 300px;
+            display: grid;
+            place-items: center;
+            
+            background-color: aqua;
+        }
+        #child{
+            height: 150px;
+            width: 150px;
+           place-items: center;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent2">
+        <div id="parent1">
+            <div id="child"></div>
+        </div>
+    </div>
+    <script>
+        let parent1=document.getElementById('parent1');
+        let parent2=document.getElementById('parent2');
+        let child=document.getElementById('child');
+        
+        parent2.addEventListener('click',(e)=>{
+            e.stopPropagation()
+            console.log('hello i am parent2')
+        },true)
+        parent1.addEventListener('click',()=>{
+            console.log('hello i am parent1')
+        })
+        child.addEventListener('click',(e)=>{
+            e.stopPropagation()
+            console.log('hello i am child')
+        })
+        
+    </script>
+</body>
+</html>
