@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container"></div>
+    <script>
+        let container=document.getElementById('container')
+let input=document.createElement('input')
+// let button=document.createElement('button')
+// button.innerText="button"
+for(i=1;i<5;i++){
+    let button=document.createElement('button')
+    button.innerText="click here"
+    container.append(button)
+button.id=`${i}`
+if(button.id==1){
+    button.style.backgroundColor="red"
+}
+else if(button.id==2){
+    button.style.backgroundColor="green"
+}
+else if(button.id==3){
+    button.style.backgroundColor="blue"
+}
+else if(button.id==4){
+    button.style.backgroundColor="yellow"
+
+
+ }
+// if(button.id==3){
+//     button.style.backgroundColor="orange"
+// }
+// if(button.id==4){
+//     button.style.backgroundColor="blue"
+// }
+
+
+}
+
+
+
+
+
+
+
+
+// button.addEventListener('click',()=>{
+//     console.log(input.value)
+// })
+container.append(input)
+
+
+    </script>
+</body>
+</html>
