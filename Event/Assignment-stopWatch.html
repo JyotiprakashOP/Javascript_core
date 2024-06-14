@@ -7,28 +7,68 @@
 </head>
 <body>
     <div class="container">
-        <h1 id="head"></h1>
+        <span id="head">00:</span>
+        <span id="head2">00:</span>
+        <span id="head3">00:</span>
+        <span id="head4">00</span>
+        <br>
         <button id="start">start</button>
+        <button id="stop">stop</button>
     </div>
 <script>
 
 let container = document.getElementById('container');
 let h1 = document.getElementById('head');
+let h2 = document.getElementById('head2');
+let h3 = document.getElementById('head3');
+let h4 = document.getElementById('head4');
+let stop=document.getElementById('stop')
+
 let button=document.getElementById('start')
 
 let i = 0
-
+let j=0
+let k=0
+let l=0
+// ++j
+//     ++k
+//     ++l
+// :${j}:${k}:${l}
 
 button.addEventListener('click',()=>{
 let intervalId=setInterval(()=>{
     ++i
-    h1.innerText=`${i}`
+    
+
+    h1.innerText=`${i}:`
+    
 },10)
-setTimeout(()=>{
-    clearInterval(intervalId)
+// setTimeout(()=>{
+//     clearInterval(intervalId)
+// },100)
+
+let intervalId2=setInterval(()=>{
+    ++j
+    h2.innerText=`${j}:`
 },1000)
+// setTimeout(() => {
+//     clearInterval(intervalId2)
+// }, 10000)
+let intervalId3=setInterval(()=>{
+    ++k
+    h2.innerText=`${k}:`
+},10000)
+let intervalId4=setInterval(()=>{
+    ++l
+    h2.innerText=`${l}:`
+},100000)
+
 })
 
+// h1.innerText=`${i}:${j}`
+stop.addEventListener('click',()=>{
+    window.stop()
+})
 
 
 
