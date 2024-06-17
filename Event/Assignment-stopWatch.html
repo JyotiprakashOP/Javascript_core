@@ -1,77 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <span id="head">00:</span>
-        <span id="head2">00:</span>
-        <span id="head3">00:</span>
-        <span id="head4">00</span>
-        <br>
-        <button id="start">start</button>
-        <button id="stop">stop</button>
-    </div>
-<script>
+  <div class="container">
+    <h2>stop watch</h2>
+    <h4 id="timer">0:0:0:0</h4>
+    <button class="btn" id="start">start</button>
+    <button class="btn" id="stop">Stop</button>
+    <button class="btn" id="reset">Reset</button>
+  </div>
+  <script>
+    let start=document.getElementById('start');
+    let stop=document.getElementById('stop');
+    let reset=document.getElementById('reset');
+    let timer=document.getElementById('timer');
 
-let container = document.getElementById('container');
-let h1 = document.getElementById('head');
-let h2 = document.getElementById('head2');
-let h3 = document.getElementById('head3');
-let h4 = document.getElementById('head4');
-let stop=document.getElementById('stop')
+    let timerId=null
 
-let button=document.getElementById('start')
+    let i=0
+    let j=0
+    let k=0
+    let l=0
 
-let i = 0
-let j=0
-let k=0
-let l=0
-// ++j
-//     ++k
-//     ++l
-// :${j}:${k}:${l}
+    start.addEventListener('click',()=>{
+      // if(timerId!==null){
+      //   clearInterval(timerId)
+      // }
+        timerId=setInterval(time,10)
+        
+    })
+    stop.addEventListener('click',()=>{
+      clearInterval(timerId)
+    })
+    reset.addEventListener('click',()=>{
+      clearInterval(timerId)
+      
+      timer.innerHTML=`0:0:0:0`
+      i=0
+      j=0
+      k=0
+      l=0
+    })
 
-button.addEventListener('click',()=>{
-let intervalId=setInterval(()=>{
-    ++i
-    
-
-    h1.innerText=`${i}:`
-    
-},10)
-// setTimeout(()=>{
-//     clearInterval(intervalId)
-// },100)
-
-let intervalId2=setInterval(()=>{
-    ++j
-    h2.innerText=`${j}:`
-},1000)
-// setTimeout(() => {
-//     clearInterval(intervalId2)
-// }, 10000)
-let intervalId3=setInterval(()=>{
-    ++k
-    h2.innerText=`${k}:`
-},10000)
-let intervalId4=setInterval(()=>{
-    ++l
-    h2.innerText=`${l}:`
-},100000)
-
-})
-
-// h1.innerText=`${i}:${j}`
-stop.addEventListener('click',()=>{
-    window.stop()
-})
+    function time(){
+      i++
+        if(i==100){
+          i=0
+          j++
+          if(j==60){
+            j=0
+            k++
+            if(k==60){
+              j=0
+              l++
+            }
+          }
+        }
+        timer.innerHTML=`${i}:${j}:${k}:${l}`
+    }
 
 
 
-</script>
+  </script>
 </body>
 </html>
