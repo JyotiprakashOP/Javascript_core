@@ -17,11 +17,11 @@
 </head>
 <body>
     <div class="container">
-        <div class="row mt-2">
+        <div class="row mt-2" style="width: 30%;">
             <input type="text" id="title" placeholder="Enter title" class="form-control mb-2">
             <input type="number" id="price" placeholder="price"class="form-control mb-2">
-            <input type="date" id="date" placeholder="enter the date" class="form-control mb-2">
-            <button class="btn btn-primary" style="width: 10%;" id="submit">Submit</button>
+            <input type="date" id="date" placeholder="enter the date" class="form-control mb-2" >
+            <button class="btn btn-primary" id="submit">Submit</button>
         </div>
         
         <div class="container mt-3">
@@ -56,25 +56,38 @@
                 price:price.value,
                 date:date.value
             }
+            printHandler()
             globalArr.push(obj)
             printHandler(globalArr)
+            title.value=''
+            price.value=''
+            date.value=''
         })
 
         function printHandler(){
             let str=''
-            globalArr=globalArr.map((item)=>{
+            globalArr.map((item)=>{
                 str+=`<div class="card mt-2">
                         <div class="card-body d-flex justify-content-around">
                             
-                            <span>Date</span>
-                            <span>Price</span>
-                            <span>Title</span>
-                            <button class="btn btn-danger">Delete</button>
+                            <span>${date.value}</span>
+                            <span>${price.value}</span>
+                            <span>${title.value}</span>
+                            <button class="btn btn-danger" onclick="deleteHandler(${item.id})">Delete</button>
                         </div>
                         
                     </div>`
             })
             card.innerHTML=str
+        }
+
+        function deleteHandler(id){
+            globalArr=globalArr.filter((item)=>{
+                if(item.id !== id){
+                    return item
+                }
+            })
+            printHandler(globalArr)
         }
     </script>
 </body>
