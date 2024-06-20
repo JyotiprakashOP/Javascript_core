@@ -149,7 +149,7 @@
             const labels = data.map(item => item.name);
             const prices = data.map(item => parseFloat(item.price));
             const date = data.map(item => item.date);
-            const month = ['jan', 'feb', 'march', 'april','may','june', 'july', 'august', 'sept', 'oct', 'nov', 'dec'];
+            const month = ['Jan', 'Feb', 'Mar', 'Apr','May','Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
             const monthvalues = new Array(12).fill(0);
             data.forEach(item =>{
                 const months = new Date(item.date).getMonth();
@@ -166,8 +166,8 @@
                     datasets: [{
                         label:'price',
                         data:monthvalues,
-                        backgroundColor : "gray",
-                        borderColor:"black",
+                        backgroundColor : "rgba(34,193,195,1)",
+                        borderColor:"white",
                         borderWidth:1
                     }]
                 },
