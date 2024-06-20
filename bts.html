@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dynamic Card Filter with Bar Chart</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <form id="form">
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" id="title" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="text" id="price" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" id="date" class="form-control">
+            </div>
+            <button id="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <br>
+        <label for="yearSelect">Filter by Year:</label>
+        <select id="yearSelect" class="form-control w-25">
+            <option value="all">All</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+        </select>
+        <div id="content" class="mt-4"></div>
+        <canvas id="barChart" class="mt-4"></canvas>
+    </div>
+
+    <script>
+        let title = document.getElementById('title');
+        let price = document.getElementById('price');
+        let date = document.getElementById('date');
+        let submit = document.getElementById('submit');
+        let content = document.getElementById('content');
+        let yearSelect = document.getElementById('yearSelect');
+        let globalArr = getItem();
+
+        // Local storage functions
+        function getItem() {
+            return localStorage.getItem('details') ? JSON.parse(localStorage.getItem('details')) : [];
+        }
+
+        function setItem() {
+            localStorage.setItem('details', JSON.stringify(globalArr));
+        }
+
+        // Dynamic cards printHandler
+        function printHandler(data = []) {
+            try {
+                let str = '';
+                data.forEach((item) => {
+                    str += ` 
+                    <div class="card mt-2">
+                        <div class="card-body d-flex justify-content-evenly">
+                            <p>${item.date}</p>
+                            <p>${item.title}</p>
+                            <p>${item.price}</p>
+                            <button class="btn btn-danger" onclick="deleteText(${item.id})">delete</button>
+                        </div>
+                    </div>
+                    `;
+                });
+                content.innerHTML = str;
+                drawBarChart(data);
+            }
+            catch (e) {
+                console.log(e.message);
+            }
+        }
+
+        // Submit button
+        submit.addEventListener('click', (e) => {
+            e.preventDefault();
+            try {
+                let obj = {
+                    id: Math.trunc(Math.random() * 100),
+                    title: title.value,
+                    price: price.value,
+                    date: date.value
+                };
+                if (!obj.title || !obj.price || !obj.date) {
+                    alert('Complete the information');
+                }
+                else {
+                    globalArr.push(obj);
+                    setItem();
+                    printHandler(globalArr);
+                    title.value = '';
+                    price.value = '';
+                    date.value = '';
+                }
+            }
+            catch (err) {
+                console.log(err.message);
+            }
+        });
+
+        // Select button functionality
+        yearSelect.addEventListener('change', selectHandler);
+
+        function selectHandler(e) {
+            e.preventDefault();
+            try {
+                let filteredArr = [];
+                if (e.target.value === 'all') {
+                    filteredArr = globalArr;
+                } else {
+                    filteredArr = globalArr.filter((item) => {
+                        let year = new Date(item.date).getFullYear();
+                        return e.target.value == year;
+
+                    });
+                }
+                printHandler(filteredArr);
+            }
+            catch (err) {
+                console.log(err.message);
+            }
+        }
+
+        // Delete button in card
+        function deleteText(id) {
+            globalArr = globalArr.filter((item) => item.id !== id);
+            setItem();
+            printHandler(globalArr);
+        }
+
+        // Draw bar chart
+        function drawBarChart(data) {
+            const labels = data.map(item => item.title);
+            const prices = data.map(item => parseFloat(item.price));
+            const date = data.map(item => item.date);
+            const month = ['jan', 'feb', 'march', 'april','may','june', 'july', 'august', 'sept', 'oct', 'nov', 'dec']
+            const monthvalues = new Array(12).fill(0);
+            data.forEach(item =>{
+                const months =new Date(item.date).getMonth();
+                monthvalues[months] += item.price;
+                console.log(months);
+            })
+            console.log(monthvalues)
+
+            const ctx = document.getElementById('barChart').getContext('2d');
+            if (window.bar) window.bar.destroy();
+            window.bar = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: month,
+                    datasets: [{
+                        label: 'Price',
+                        data: monthvalues,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initial print
+        printHandler(globalArr);
+    </script>
+</body>
+
+</html>

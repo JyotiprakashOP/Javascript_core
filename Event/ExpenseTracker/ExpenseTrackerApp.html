@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- bootstrap css link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- chart link -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+  <body>
+    <div class="container">
+      <div class="row justify-content-evenly mt-5">
+        <div class="col">
+          <input type="text" name="" class="form-control" id="name" />
+          <input type="text" name="" class="form-control mt-3" id="price" />
+            <input type="date" name="" class="form-control mt-3" id="date">
+        </div>
+        <div class="col">
+          <button class="btn btn-primary" id="submit">Submit</button>
+        </div>
+        <div class="col">
+          <select
+            name=""
+            onchange="selectHandler(event)"
+            class="form-select"
+            aria-label="document example"
+            id=""
+          >
+            <option value="all">All</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mt-4" id="content">
+          <!-- <div class="card">
+                <div class="card-body ">
+                    <p>date</p>
+                    <p>title</p>
+                    <p>price</p>
+                    <button class="btn btn-danger" id="delete">delete</button>
+                </div>
+            </div> -->
+        </div>
+      </div>
+      <canvas id="barchart" class="mt-4"></canvas>
+    </div>
+
+    <script>
+      try {
+        let name = document.getElementById("name");
+        let price = document.getElementById("price");
+        let submit = document.getElementById("submit");
+        let deletebtn = document.getElementById("delete");
+        let content = document.getElementById("content");
+        let date = document.getElementById('date');
+        let globalArr = getItem();
+
+        // localStorage
+
+        function getItem() {
+            return localStorage.getItem('details') ? JSON.parse(localStorage.getItem('details')) : [];
+        }  
+
+        function setItem() {
+          localStorage.setItem("details", JSON.stringify(globalArr));
+        }
+        // submit event
+
+        submit.addEventListener("click", () => {
+          let obj = {
+            id: Math.trunc(Math.random() * 100),
+            name: name.value,
+            price: price.value,
+            date:date.value
+          };
+
+          globalArr.push(obj);
+          setItem();
+          printHandler(globalArr);
+          name.value = "";
+          price.value = "";
+          date.value='';
+        });
+
+        // printHandler
+
+        function printHandler(data = []) {
+          let str = "";
+          data.forEach((item) => {
+            str += `
+                <div class="card mt-2">
+                <div class="card-body d-flex justify-content-evenly">
+                    <p>${item.date}</p>
+                    <p>${item.name}</p>
+                    <p>${item.price}</p>
+                    <button class="btn btn-danger"   onclick="deleteHandler(${item.id})">delete</button>
+                </div>
+            </div>
+                `;
+          });
+
+          content.innerHTML = str;
+          drawBarChart(data);
+        }
+
+        //delete event
+
+        function deleteHandler(id) {
+          globalArr = globalArr.filter((item) => item.id !== id);
+          setItem();
+          printHandler(globalArr);
+        }
+
+        //sort event
+
+        function selectHandler(e) {
+          e.preventDefault();
+
+          let filteredArr = [];
+          if (e.target.value == "all") {
+                filteredArr =globalArr;
+          }
+          else{
+            filteredArr=globalArr.filter((item)=>{
+                let year = new Date(item.date).getFullYear();
+                // console.log(e.target.value == year);
+                return e.target.value == year;
+            })
+          }
+          printHandler(filteredArr);
+        }
+
+        //barchart
+
+        function drawBarChart(data){
+            const labels = data.map(item => item.name);
+            const prices = data.map(item => parseFloat(item.price));
+            const date = data.map(item => item.date);
+            const month = ['jan', 'feb', 'march', 'april','may','june', 'july', 'august', 'sept', 'oct', 'nov', 'dec'];
+            const monthvalues = new Array(12).fill(0);
+            data.forEach(item =>{
+                const months = new Date(item.date).getMonth();
+                monthvalues[months] += item.price;
+            })
+            console.log(monthvalues)
+
+            const ctx = document.getElementById('barchart').getContext('2d');
+            if(window.bar) window.bar.destroy();
+            window.bar = new Chart(ctx,{
+                type:'bar',
+                data:{
+                    labels:month,
+                    datasets: [{
+                        label:'price',
+                        data:monthvalues,
+                        backgroundColor : "gray",
+                        borderColor:"black",
+                        borderWidth:1
+                    }]
+                },
+                options:{
+                    scales:{
+                        y:{
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+            
+        }
+
+
+
+        printHandler(globalArr)
+
+    } catch (e) {
+        console.log(e.message);
+      }
+
+</script>
+
+    <!-- bootstrap js link -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
