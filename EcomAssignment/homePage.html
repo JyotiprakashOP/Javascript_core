@@ -33,6 +33,7 @@
         let cartBtn=document.getElementById('cartBtn');
         let arr=[]
         let body=document.getElementById('body');
+        let id
 
         function setItem(){
             localStorage.setItem('items',JSON.stringify(arr))
@@ -58,6 +59,11 @@
             }).then((data)=>{
                 arr=data.products
                 print(arr)
+            }).then((products)=>{
+                arr.forEach((item)=>{
+                    id=item.id
+                    
+                })
             }).catch((err)=>{
                 console.log(err)
             })
@@ -89,12 +95,12 @@
         }
         
 
-        function add(){
-            let obj={
-                data:fetchData
-            }
-        arr.push(obj)
-        console.log(arr)
+        function add(id){
+           
+        
+        console.log(id)
+        setItem()
+        
         }
 
 
