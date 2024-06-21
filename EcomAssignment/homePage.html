@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container-fluid d-flex justify-content-end">
-        <button class="btn btn-primary position-relative mt-5 ">Cart
+        <button class="btn btn-primary position-relative mt-5 " id="cartBtn" target="-blank">Cart
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                 0
                 <span class="visually-hidden">unread messages</span>
@@ -30,8 +30,27 @@
     </div>
     
     <script>
+        let cartBtn=document.getElementById('cartBtn');
         let arr=[]
         let body=document.getElementById('body');
+
+        function setItem(){
+            localStorage.setItem('items',JSON.stringify(arr))
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         let fetchData=async()=>{
             let url="https://dummyjson.com/products"
             fetch(url).then((item)=>{
@@ -42,8 +61,14 @@
             }).catch((err)=>{
                 console.log(err)
             })
+            
         }
         fetchData()
+
+        
+
+
+
         function print(arg){
             let str=''
             arg.map((item)=>{
@@ -54,7 +79,7 @@
                     <div class="card-body">
                         <img src=${item.thumbnail} class="img-fluid" alt="">
                         <p>${item.title}</p>
-                        <button class="btn btn-danger"> Add to cart</button>
+                        <button class="btn btn-danger" onclick="add(${item.id})"> Add to cart</button>
                     </div>
                 </div>
                 </div>`
@@ -62,7 +87,28 @@
             })
             body.innerHTML=str
         }
+        
+
+        function add(){
+            let obj={
+                data:fetchData
+            }
+        arr.push(obj)
+        console.log(arr)
+        }
+
+
+
+
+        
+
+        //this is cart button function
+        cartBtn.addEventListener('click',()=>{
+            window.location.href=`cartPage.html`
+        })
+
     </script>
+   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body>

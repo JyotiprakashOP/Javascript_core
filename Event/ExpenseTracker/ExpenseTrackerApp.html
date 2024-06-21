@@ -34,6 +34,7 @@
             aria-label="document example"
             id=""
           >
+          //this thing you can make dyanmic
             <option value="all">All</option>
             <option value="2020">2020</option>
             <option value="2021">2021</option>
@@ -66,6 +67,7 @@
         let deletebtn = document.getElementById("delete");
         let content = document.getElementById("content");
         let date = document.getElementById('date');
+        //this is for localstorage
         let globalArr = getItem();
 
         // localStorage
@@ -84,7 +86,7 @@
             id: Math.trunc(Math.random() * 100),
             name: name.value,
             price: price.value,
-            date:date.value
+            date:date.value   //new Date()
           };
 
           globalArr.push(obj);
@@ -155,12 +157,11 @@
                 const months = new Date(item.date).getMonth();
                 monthvalues[months] += item.price;
             })
-            console.log(monthvalues)
-
+            // console.log(monthvalues)
             const ctx = document.getElementById('barchart').getContext('2d');
             if(window.bar) window.bar.destroy();
             window.bar = new Chart(ctx,{
-                type:'bar',
+                type:'pie',
                 data:{
                     labels:month,
                     datasets: [{
