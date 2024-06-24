@@ -32,8 +32,9 @@
         <div class="col" id="cart-items"></div>
       </div>
     </div>
-    <div><h1 id="footer">hello</h1></div>
+    <div><h1 id="footer"></h1></div>
     <script>
+      let cart = JSON.parse(localStorage.getItem("products")) || [];
       function display() {
         let cartItems = document.getElementById("cart-items");
         cartItems.innerHTML = ""; // Clear existing items
@@ -57,6 +58,7 @@
             </div>`;
           cartItems.append(card);
         });
+        total()
       }
 
 
@@ -83,14 +85,14 @@
         console.log(total);
         footer.innerHTML = `Total : ${Math.round(total)}`;
       }
-      total();
+      
 
 
 
 
       
       function qtyDec() {}
-      let cart = JSON.parse(localStorage.getItem("products")) || [];
+      
 
       function qtyInc(id) {
         cart.forEach((item) => {
