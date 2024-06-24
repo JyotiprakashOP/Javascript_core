@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div id="container" ></div>
+
+    <script>
+        let count=1
+        let container=document.getElementById('container');
+        for(i=1;i<=5;i++){
+            for(j=1;j<=5;j++){
+                let box=document.createElement('div');
+                box.style.border="1px,solid,black"
+                box.style.height='100px'
+                box.style.width='100px'
+                box.innerText=`${count++}`
+                container.append(box)
+                
+                
+            }
+            
+            
+        }
+    </script>
+</body>
+</html>

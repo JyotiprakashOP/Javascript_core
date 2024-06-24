@@ -27,7 +27,7 @@
           class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
           id="cartMsg"
         >
-          <span class="visually-hidden">unread messages</span>
+          
         </span>
       </button>
     </div>
@@ -102,23 +102,29 @@
       }
       //function for add to cart
       function add(id) {
-        //
-        let items = JSON.parse(localStorage.getItem("products")) || [];
+        //it fetch the items from local storage with key "products"
+        let items = JSON.parse(localStorage.getItem("products")) || []; 
 
+        //finds id==item.id
         let found = items.find((item) => item.id === id);
         console.log(found);
         if (found) {
           found.qty++;
+          
         } else {
           let itemToAdd = arr.find((item) => item.id === id);
 
           if (itemToAdd) {
             items.push({ ...itemToAdd, qty: 1 });
+            cartMsg.innerText=`${items.length}`
+            
+            
           }
         }
-
+        
         localStorage.setItem("products", JSON.stringify(items));
         console.log("Item added to cart:", id);
+        
         
       }
       print(arr);
