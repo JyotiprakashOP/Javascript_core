@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // function armstrong(num){
+      //     let temp=num
+      //     let sum=0
+      //     let rem=0
+      //     let length=num.toString().length
+      //     while(temp>0)
+      //     {
+      //         rem=temp%10
+      //         sum+=Math.pow(rem,length)
+      //         temp=Math.floor(temp/10)
+      //     }
+      //     return sum==num
+      // }
+      // function range(start,end){
+      //     let count=0
+      //     for(i=start;i<=end;i++){
+      //         if(armstrong(i)){
+      //             // console.log(i)
+      //             count++
+      //             if(count%2==0){
+      //             console.log(i)
+      //         }
+      //         }
+      //     }
+      // }
+      // range(10,1000)
+
+      //strong number is a range
+    //   function strong(num) {
+    //     let temp = num;
+    //     let sum = 0;
+
+    //     while (temp > 0) {
+    //       let rem = temp % 10;
+    //       temp = Math.trunc(temp / 10);
+
+    //       let fact = 1;
+    //       for (let i = 1; i <= rem; i++) {
+    //         fact *= i;
+    //       }
+    //       sum += fact;
+    //     }
+
+    //     return sum === num;
+    //   }
+
+    //   function range(start, end) {
+    //     for (i = start; i <= end; i++) {
+    //       if (strong(i)) {
+    //         console.log(i);
+    //       }
+    //     }
+    //   }
+    //   range(10, 1000);
+
+
+    //perfect number in a range
+
+    function perfect(num){
+        let temp=num
+        let sum=0
+        for(i=1;i<temp;i++){
+            if(temp%i==0){
+                sum+=i
+            }
+        }
+        return sum===num
+    }
+    function range(start,end){
+        for(i=start;i<=end;i++){
+            if(perfect(i)){
+                console.log(i)
+            }
+        }
+    }
+    range(1,1000)
+      
+    </script>
+  </body>
+</html>

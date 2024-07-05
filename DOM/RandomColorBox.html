@@ -55,7 +55,7 @@
         function changeColor() {
             const boxes = document.querySelectorAll('.box');
             boxes.forEach((box, index) => {
-               intervalId= setTimeout(() => {
+                setTimeout(() => {
                     box.style.backgroundColor = randomColor();
 
                     //reset to white color
@@ -73,7 +73,7 @@
         // Start button event
 
         startButton.addEventListener('click', () => {
-            intervalId = setInterval(changeColor(),16000); // Ensure the interval is long enough for one complete cycle
+            intervalId = setInterval(changeColor(),16000); // it ensures the interval is long enough for one complete cycle
         });
 
         // Stop button event

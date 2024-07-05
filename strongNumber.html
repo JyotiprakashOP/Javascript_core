@@ -34,7 +34,7 @@
             while (temp > 0) {
                 let rem = temp % 10
                 let fact = 1;
-                for (let j = 1; j <= rem; j++) {
+                for (let j = 1; j < rem; j++) {
                     fact = fact * j
                 }
                 sum += fact
