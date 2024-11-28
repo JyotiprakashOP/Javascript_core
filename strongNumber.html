@@ -8,25 +8,6 @@
 <body>
     <script>
                 // strong number
-        // let count = 0
-        // for (let i = 1; i <= 1000; i++) {
-        //     let temp = i
-        //     let sum = 0
-        //     while (temp > 0) {
-        //         let rem = temp % 10
-        //         let fact = 1;
-        //         for (let j = 1; j <= rem; j++) {
-        //             fact = fact * j
-        //         }
-        //         sum += fact
-        //         temp = Math.trunc(temp / 10)
-        //     }
-        //     if (sum == i) {
-        //         console.log(i)
-        //     }
-        // }
-
-                //alternate strong number
         let count = 0
         for (let i = 1; i <= 1000; i++) {
             let temp = i
@@ -34,22 +15,43 @@
             while (temp > 0) {
                 let rem = temp % 10
                 let fact = 1;
-                for (let j = 1; j < rem; j++) {
-                    fact = fact * j
+                for (let j = 1; j <= rem; j++) {
+                    fact *= j
                 }
                 sum += fact
                 temp = Math.trunc(temp / 10)
             }
             if (sum == i) {
-                if(count%2!=0){
-                    console.log(i);
-                    count++;
-                }
-                else{
-                    count++
-                }
+                console.log(i)
             }
         }
+
+                //alternate strong number
+        // let count = 0
+        // for (let i = 1; i <= 1000; i++) {
+        //     let temp = i
+        //     let sum = 0
+        //     while (temp > 0) {
+        //         let rem = temp % 10
+        //         let fact = 1;
+        //         for (let j = 1; j < rem; j++) {
+        //             fact = fact * j
+        //         }
+        //         sum += fact
+        //         temp = Math.trunc(temp / 10)
+        //     }
+        //     if (sum == i) {
+        //         if(count%2!=0){
+        //             console.log(i);
+        //             count++;
+        //         }
+        //         else{
+        //             count++
+        //         }
+        //     }
+        // }
+
+        
         
     </script>
 </body>
